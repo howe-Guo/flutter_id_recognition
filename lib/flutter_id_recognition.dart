@@ -5,4 +5,8 @@ class FlutterIdRecognition {
   Future<String?> getPlatformVersion() {
     return FlutterIdRecognitionPlatform.instance.getPlatformVersion();
   }
+
+  Future<dynamic> getIDNum() {
+    return FlutterIdRecognitionPlatform.instance.getIDNum();
+  }
 }

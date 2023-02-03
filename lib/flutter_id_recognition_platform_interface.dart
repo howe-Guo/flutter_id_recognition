@@ -26,4 +26,8 @@ abstract class FlutterIdRecognitionPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<dynamic> getIDNum() async {
+    throw UnimplementedError('IDNum() has not been implemented.');
+  }
 }

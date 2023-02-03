@@ -10,10 +10,14 @@ class MockFlutterIdRecognitionPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future getIDNum() => Future.value({'idNum': '4315345423'});
 }
 
 void main() {
-  final FlutterIdRecognitionPlatform initialPlatform = FlutterIdRecognitionPlatform.instance;
+  final FlutterIdRecognitionPlatform initialPlatform = FlutterIdRecognitionPlatform
+      .instance;
 
   test('$MethodChannelFlutterIdRecognition is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelFlutterIdRecognition>());

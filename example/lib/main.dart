@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_id_recognition/flutter_id_recognition.dart';
+import 'package:flutter_id_recognition_example/check_permission.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,12 +19,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _flutterIdRecognitionPlugin = FlutterIdRecognition();
+  Map<String,String> _mapID = {"name":"哈哈哈","idNum":"610321"};
+  final _flutterHuaweiMlPlugin = FlutterIdRecognition();
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    // initPlatformState();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -31,10 +34,28 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await _flutterIdRecognitionPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      platformVersion = await _flutterHuaweiMlPlugin.getPlatformVersion() ??
+          'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _platformVersion = platformVersion;
+    });
+  }
+
+  Future<void> getIDNum() async {
+    Map<String,String> mapID;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    // We also handle the message potentially returning null.
+    try {
+     var res = await _flutterHuaweiMlPlugin.getIDNum() ?? {};
+     mapID = Map<String,String>.from(res);
+    } on PlatformException {
+      mapID = {"": ""};
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -43,7 +64,7 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _mapID = mapID;
     });
   }
 
@@ -55,7 +76,23 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(children: [
+            ElevatedButton(
+              onPressed: () {
+                CheckPermission.checkPermission(
+                  permissions: [Permission.camera, Permission.storage],
+                  onOpenSetting: () {
+                    openAppSettings();
+                  },
+                  onFailed: () {},
+                  onSuccess: getIDNum,
+                );
+              },
+              child: Text('扫描'),
+            ),
+            Text("${_mapID["name"]}+${_mapID["idNum"]}"),
+            Text('Running on: $_platformVersion\n')
+          ],),
         ),
       ),
     );
