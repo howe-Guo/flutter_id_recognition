@@ -1,7 +1,7 @@
 name: flutter_id_recognition
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: 实现Android和IOS身份证识别，返回身份证号码.
+version: 0.0.2
+homepage: https://github.com/howe-Guo/flutter_id_recognition
 
 environment:
   sdk: '>=2.18.6 <3.0.0'

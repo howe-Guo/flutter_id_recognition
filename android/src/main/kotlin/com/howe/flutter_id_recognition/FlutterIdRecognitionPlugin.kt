@@ -80,14 +80,12 @@ class FlutterIdRecognitionPlugin : FlutterPlugin, MethodCallHandler, ActivityAwa
     override fun onSuccess(captureResult: MLCnIcrCaptureResult?) {
         idName = captureResult?.name ?: ""
         idNum = captureResult?.idNum ?: ""
-//        context.runOnUiThread {
         // 向Flutter回调执行结果
         if (idNum != null) {
             result.success(mapOf("name" to idName, "idNum" to idNum))
         } else {
             result.error("1111", "失败", null)
         }
-//        }
     }
 
     override fun onCanceled() {
