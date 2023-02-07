@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_id_recognition/flutter_id_recognition_method_channel.dart';
 
 void main() {
-  MethodChannelFlutterIdRecognition platform = MethodChannelFlutterIdRecognition();
+  MethodChannelFlutterIdRecognition platform =
+      MethodChannelFlutterIdRecognition();
   const MethodChannel channel = MethodChannel('flutter_id_recognition');
 
   TestWidgetsFlutterBinding.ensureInitialized();

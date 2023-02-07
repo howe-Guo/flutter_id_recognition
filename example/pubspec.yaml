@@ -6,7 +6,7 @@ description: Demonstrates how to use the flutter_id_recognition plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.6 <3.7.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,7 +30,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   permission_handler: ^10.2.0 # 权限申请库
-  flutter_smart_dialog: ^4.5.3+7 # Toast 弹窗库
+  flutter_smart_dialog: ^4.8.2+3 # Toast 弹窗库
   logger: ^1.1.0 # 好看的日志工具
 
 dev_dependencies:

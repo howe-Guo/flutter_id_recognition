@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-
 ///  Description:
 ///
 ///  @Author: G
@@ -62,7 +61,9 @@ class CheckPermissionView {
                     ),
                     elevation: MaterialStateProperty.all(0),
                   ),
-                  onPressed: (){SmartDialog.dismiss();},
+                  onPressed: () {
+                    SmartDialog.dismiss();
+                  },
                   child: Text(
                     '取消',
                     style: TextStyle(

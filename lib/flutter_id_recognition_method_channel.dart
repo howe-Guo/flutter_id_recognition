@@ -11,10 +11,10 @@ class MethodChannelFlutterIdRecognition extends FlutterIdRecognitionPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version =
+        await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
-
 
   @override
   Future<dynamic> getIDNum() async {

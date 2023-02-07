@@ -7,7 +7,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockFlutterIdRecognitionPlatform
     with MockPlatformInterfaceMixin
     implements FlutterIdRecognitionPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 
@@ -16,8 +15,8 @@ class MockFlutterIdRecognitionPlatform
 }
 
 void main() {
-  final FlutterIdRecognitionPlatform initialPlatform = FlutterIdRecognitionPlatform
-      .instance;
+  final FlutterIdRecognitionPlatform initialPlatform =
+      FlutterIdRecognitionPlatform.instance;
 
   test('$MethodChannelFlutterIdRecognition is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelFlutterIdRecognition>());
@@ -25,7 +24,8 @@ void main() {
 
   test('getPlatformVersion', () async {
     FlutterIdRecognition flutterIdRecognitionPlugin = FlutterIdRecognition();
-    MockFlutterIdRecognitionPlatform fakePlatform = MockFlutterIdRecognitionPlatform();
+    MockFlutterIdRecognitionPlatform fakePlatform =
+        MockFlutterIdRecognitionPlatform();
     FlutterIdRecognitionPlatform.instance = fakePlatform;
 
     expect(await flutterIdRecognitionPlugin.getPlatformVersion(), '42');

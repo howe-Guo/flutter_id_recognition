@@ -1,15 +1,29 @@
 # flutter_id_recognition
 
-A new Flutter project.
+Android integrates Huawei SDK ID card recognition, and IOS integrates ID recognition.
 
-## Getting Started
+## Usage
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+1. Android project root directory add:
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   - `maven { url 'https://developer.huawei.com/repo/' }`
+
+2. app directory add:
+
+   - ```
+         dependencies {
+             // 中国第二代身份证
+             // 引入身份证plugin与识别能力集合包。
+             implementation 'com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303'
+     
+             //越南身份证
+     //    implementation 'com.huawei.hms:ml-computer-card-icr-vn:3.7.0.303'
+     
+             implementation 'com.huawei.hms:scanplus:2.8.0.300'
+         }
+     ```
+
+     
+
+
 

@@ -20,13 +20,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  Map<String,String> _mapID = {"name":"howeGuo","idNum":"610321"};
+  Map<String, String> _mapID = {"name": "howeGuo", "idNum": "610321"};
   final _flutterHuaweiMlPlugin = FlutterIdRecognition();
 
   @override
   void initState() {
     super.initState();
-    // initPlatformState();
+    initPlatformState();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -49,12 +49,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> getIDNum() async {
-    Map<String,String> mapID;
+    Map<String, String> mapID;
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-     var res = await _flutterHuaweiMlPlugin.getIDNum() ?? {};
-     mapID = Map<String,String>.from(res);
+      var res = await _flutterHuaweiMlPlugin.getIDNum() ?? {};
+      mapID = Map<String, String>.from(res);
     } on PlatformException {
       mapID = {"": ""};
     }
@@ -80,23 +80,25 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Column(children: [
-            ElevatedButton(
-              onPressed: () {
-                CheckPermission.checkPermission(
-                  permissions: [Permission.camera, Permission.storage],
-                  onOpenSetting: () {
-                    openAppSettings();
-                  },
-                  onFailed: () {},
-                  onSuccess: getIDNum,
-                );
-              },
-              child: Text('scan'),
-            ),
-            Text("${_mapID["name"]}+${_mapID["idNum"]}"),
-            Text('Running on: $_platformVersion\n')
-          ],),
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  CheckPermission.checkPermission(
+                    permissions: [Permission.camera, Permission.storage],
+                    onOpenSetting: () {
+                      openAppSettings();
+                    },
+                    onFailed: () {},
+                    onSuccess: getIDNum,
+                  );
+                },
+                child: Text('scan'),
+              ),
+              Text("${_mapID["name"]}+${_mapID["idNum"]}"),
+              Text('Running on: $_platformVersion\n')
+            ],
+          ),
         ),
       ),
     );

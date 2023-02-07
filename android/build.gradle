@@ -47,13 +47,13 @@ android {
     }
 
     dependencies {
-        //中国第二代身份证
+        // 中国第二代身份证
         // 引入身份证plugin与识别能力集合包。
-        api 'com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303'
+        implementation 'com.huawei.hms:ml-computer-card-icr-cn:3.7.0.303'
 
         //越南身份证
 //    implementation 'com.huawei.hms:ml-computer-card-icr-vn:3.7.0.303'
 
-        api 'com.huawei.hms:scanplus:2.8.0.300'
+        implementation 'com.huawei.hms:scanplus:2.8.0.300'
     }
 }

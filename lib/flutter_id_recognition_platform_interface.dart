@@ -8,7 +8,8 @@ abstract class FlutterIdRecognitionPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static FlutterIdRecognitionPlatform _instance = MethodChannelFlutterIdRecognition();
+  static FlutterIdRecognitionPlatform _instance =
+      MethodChannelFlutterIdRecognition();
 
   /// The default instance of [FlutterIdRecognitionPlatform] to use.
   ///

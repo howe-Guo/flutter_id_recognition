@@ -1,6 +1,7 @@
-## 0.0.2
+## 0.0.1
 
-remove useless code,modify the demo default value.
+* Initial public release
 
-* TODO: Describe initial release.
-  CH IE și
+  
+
+  
