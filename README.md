@@ -4,11 +4,42 @@ Android integrates Huawei SDK ID card recognition, and IOS integrates ID recogni
 
 ## Usage
 
-1. Android project root directory add:
+1. Use this package as a library
 
-   - `maven { url 'https://developer.huawei.com/repo/' }`
+   ### Depend on it
 
-2. app directory add:
+   Run this command:
+
+   With Flutter:
+
+   ```shell
+    $ flutter pub add flutter_id_recognition
+   ```
+
+   This will add a line like this to your package's pubspec.yaml (and run an implicit `flutter pub get`):
+
+   ```yaml
+   dependencies:
+     flutter_id_recognition: ^0.1.0
+   ```
+
+   Alternatively, your editor might support `flutter pub get`. Check the docs for your editor to learn more.
+
+   ### Import it
+
+   Now in your Dart code, you can use:
+
+   ```dart
+   import 'package:flutter_id_recognition/flutter_id_recognition.dart';
+   ```
+
+2. Android project root directory add:
+
+   - ```
+     maven { url 'https://developer.huawei.com/repo/' }
+     ```
+
+3. app directory add:
 
    - ```
          dependencies {
